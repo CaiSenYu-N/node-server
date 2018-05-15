@@ -38,7 +38,7 @@ function routePath(req, res){
   var handleFn = routes[pathObj.pathname]
   if(handleFn){
     req.query = pathObj.query
-    
+
     var body = ''
     req.on('data', function(chunk){
       body += chunk
@@ -57,7 +57,7 @@ function staticRoot(staticPath, req, res){
   var filePath = path.join(staticPath, pathObj.pathname)
   fs.readFile(filePath,'binary', function(err, content){
     if(err){
-      res.writeHead('404', 'haha Not Found')
+      res.writeHead('404', 'Not Found')
       return res.end()
     }
 
